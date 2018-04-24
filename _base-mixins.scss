@@ -1,0 +1,30 @@
+@mixin linear-gradient($color1, $color2) {
+	background-color: mix($color1, $color2, 50%);
+	background-image: -o-linear-gradient($color1, $color2);
+	background-image: -moz-linear-gradient($color1, $color2);
+	background-image: -webkit-linear-gradient($color1, $color2);
+	background-image: linear-gradient($color1, $color2);
+}
+
+
+@mixin getReal($color, $procent:5%) {
+	@include linear-gradient(lighten($color, $procent), darken($color, $procent));
+}
+
+@mixin getRealOut($color, $procent:5%) {
+	@include linear-gradient(darken($color, $procent), lighten($color, $procent));
+}
+
+@mixin getLight($color: #fff, $size: 10px) {
+	box-shadow: 0 0 $size $color;
+}
+
+@mixin getLit($color: #fff, $size: 10px, $power: 7%) {
+	@include getLight(lighten($color, $power), $size);
+	background: lighten($color, $power);
+}
+
+@mixin noUse(){
+	user-select: none;
+	pointer-events: none;
+}
