@@ -1,0 +1,17 @@
+{
+  "name": "base-mixins",
+  "homepage": "https://github.com/TigerMehMat/base-mixins",
+  "authors": [
+    "TigerMehMat <vova9325053@mail.ru>"
+  ],
+  "description": "Base mixins for sass project",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
