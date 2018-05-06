@@ -1,5 +1,18 @@
-@mixin linear-gradient($color1, $color2) {
-	background-color: mix($color1, $color2, 50%);
+/*
+*
+*	base-mixins
+*	author: TigerMehMat
+*	git: https://github.com/TigerMehMat/base-mixins
+*
+*/
+
+$base-mixins-shadow-blur: 1em !default;
+$base-mixins-precent-gradient: 50% !default;
+$base-mixins-precent-light: 5% !default;
+
+
+@mixin linear-gradient($color1, $color2, $precent: $base-mixins-precent-gradient) {
+	background-color: mix($color1, $color2, $precent);
 	background-image: -o-linear-gradient($color1, $color2);
 	background-image: -moz-linear-gradient($color1, $color2);
 	background-image: -webkit-linear-gradient($color1, $color2);
@@ -7,21 +20,21 @@
 }
 
 
-@mixin getReal($color, $procent:5%) {
-	@include linear-gradient(lighten($color, $procent), darken($color, $procent));
+@mixin getReal($color, $precent:$base-mixins-precent-light) {
+	@include linear-gradient(lighten($color, $precent), darken($color, $precent));
 }
 
-@mixin getRealOut($color, $procent:5%) {
-	@include linear-gradient(darken($color, $procent), lighten($color, $procent));
+@mixin getRealOut($color, $precent:$base-mixins-precent-light) {
+	@include linear-gradient(darken($color, $precent), lighten($color, $precent));
 }
 
-@mixin getLight($color: #fff, $size: 10px) {
+@mixin getLight($color, $size: $base-mixins-shadow-blur) {
 	box-shadow: 0 0 $size $color;
 }
 
-@mixin getLit($color: #fff, $size: 10px, $power: 7%) {
-	@include getLight(lighten($color, $power), $size);
-	background: lighten($color, $power);
+@mixin getLit($color, $size: $base-mixins-shadow-blur, $precent: $base-mixins-precent-light) {
+	@include getLight(lighten($color, $precent), $size);
+	background: lighten($color, $precent);
 }
 
 @mixin noUse(){
